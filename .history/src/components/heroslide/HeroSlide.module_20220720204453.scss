@@ -1,0 +1,103 @@
+@use '../../scss/' as *;
+.heroSlide{
+    margin-bottom: 3rem;
+}
+
+.container{
+    max-width: 1660px;
+    margin:auto;
+  }
+
+.heroSlideItem{
+    padding: 9rem 0;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include overlay();
+    }
+
+    &::after{
+       content: ""; 
+       bottom: 0;
+       left: 0;
+       width: 100%;
+       height: 100px;
+       background-image: linear-gradient(to top, $body-bg, rgba($black,0));
+    }
+
+    &.active > .heroSlideItemContentPoster{
+        img{
+            transform:scale(1);
+        }
+    }
+}
+
+.heroSlideItemContent{
+    @include flex(center,center);
+    position: relative;
+}
+
+.heroSlideItemContentInfo{
+    width: 55%;
+    padding: 0 3rem;
+    position: relative;
+
+    @include tablet{
+        width: 100%;
+    }
+    & > * ~ * {
+        margin-top: 3rem;
+    }
+    .title{
+        font-size: 5rem;
+        font-weight: 700;
+        line-height: 1;
+        @include tablet{
+            font-size: 4rem;
+        }
+    }
+    .overview{
+        font-weight: 700;
+    }
+    .btns > * ~ * {
+        margin-left: 1rem;
+    }
+
+    .btns, 
+    .title, 
+    .overview {
+        opacity: 0;
+        transform: translateY(-100px);
+        transition: transform 0.5 ease, opacity 0.5s ease;
+    }
+}
+
+.heroSlideItemContentPoster{
+    flex: 1;
+    @include flex(center,flex-start);
+    position: relative;
+  
+    img{
+        width:400px;
+        border-radius : $border-radius;
+        box-shadow: $box-shadow;
+
+        transform: scale(0);
+        transition: transform 0.7s ease;
+    }
+
+    @include tablet{
+        display: none;
+    }
+
+}

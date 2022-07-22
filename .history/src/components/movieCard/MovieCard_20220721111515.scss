@@ -1,0 +1,9 @@
+@use '../../scss/' as *;
+
+.movie-card{
+    position: relative;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 160%;
+}
