@@ -130,3 +130,20 @@
         margin-bottom: 1.5rem;
     }
 }
+
+.btn__watch{
+    margin-top:20px;
+    display: flex;
+    align-items: center;
+}
+
+.btn__now{
+    margin-right: 20px;
+}
+
+.awatchnow{
+    color: white;
+    &:hover{
+        color: black;
+    }
+}

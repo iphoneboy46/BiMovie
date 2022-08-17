@@ -5,7 +5,10 @@ import tmdbApi from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
 
 import CastList from "./CastList";
-import VideoList from './VideoList'
+import VideoList from './VideoList';
+import VideoMovie from './VideoMovie';
+
+import Button, { OutLineButton } from '../../components/button/Button'
 
 import "./Details.scss";
 
@@ -65,11 +68,28 @@ export default function Details() {
                 {/* {casts-list} */}
                 <CastList id={item.id} />
               </div>
+              <div className="btn__watch">
+                <div className="btn__now">
+                  <Button>
+                    <a className="awatchnow" href="#watchnow">Watch Now</a>
+                  </Button>
+                </div>
+                <div className="btn__trailer">
+                  <OutLineButton>
+                    <a href="#trailer">Watch Trailer</a>
+                  </OutLineButton>
+                </div>
+              </div>
             </div>
           </div>
           <div className="container">
-            <div className="section mb-3">
-                <VideoList id={item.id} />
+            <div id="trailer" className="section mb-3">
+              <VideoList id={item.id} />
+            </div>
+          </div>
+          <div className="container">
+            <div id="watchnow" className="section mb-3">
+              <VideoMovie id={item.id} />
             </div>
           </div>
         </>
